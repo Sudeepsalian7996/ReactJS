@@ -8,7 +8,6 @@ function ExpenseItem(props){
     const [amount,setAmount]=useState(props.amount)
     function changeTitle(){
         setTitle("updated")
-        console.log(title)
     }
     function changeAmount(){
         setAmount("$100")
