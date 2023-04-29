@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <ExpenseForm></ExpenseForm>
+      <ExpenseForm />
       {expenses.map((ele) => {
         return <ExpenseItem title={ele.title} amount={ele.amount} date={ele.date} loc={ele.loc}></ExpenseItem>
       })
