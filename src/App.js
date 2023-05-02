@@ -1,5 +1,5 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
-import ExpenseForm from "./components/newExpense/ExpenseForm"
+import NewExpense from "./components/newExpense/newExpense"
 
 function App() {
   const expenses = [
@@ -27,9 +27,14 @@ function App() {
     },
   ];
 
+  function expenseHandler(expense){
+    console.log("app.js")
+    expenses.push(expense)
+  }
+
   return (
     <div>
-      <ExpenseForm />
+      <NewExpense expenseAddedToApp={expenseHandler} />
       {expenses.map((ele) => {
         return <ExpenseItem title={ele.title} amount={ele.amount} date={ele.date} loc={ele.loc}></ExpenseItem>
       })
