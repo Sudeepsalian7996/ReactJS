@@ -6,6 +6,7 @@ import ExpenseDetails from "./ExpenseDetails"
 function ExpenseItem(props){
     const [title,setTitle]=useState(props.title)
     const [amount,setAmount]=useState(props.amount)
+    
     function changeTitle(){
         setTitle("updated")
     }

@@ -1,8 +1,10 @@
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+import { useState } from "react";
+import AllExpenses from "./components/Expenses/AllExpenses"
 import NewExpense from "./components/newExpense/newExpense"
 
+
 function App() {
-  const expenses = [
+  const dummy = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -26,19 +28,19 @@ function App() {
       loc:"chennai"
     },
   ];
-
+const [expenses,newExpenses]=useState(dummy)
   function expenseHandler(expense){
     console.log("app.js")
-    expenses.push(expense)
+    newExpenses((previousState)=>{
+    return [expense,...previousState]
+   })
   }
 
   return (
     <div>
       <NewExpense expenseAddedToApp={expenseHandler} />
-      {expenses.map((ele) => {
-        return <ExpenseItem title={ele.title} amount={ele.amount} date={ele.date} loc={ele.loc}></ExpenseItem>
-      })
-      }
+      
+      <AllExpenses items={expenses}/>
     </div>
   );
 }

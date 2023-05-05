@@ -17,7 +17,7 @@ function ExpenseForm(props){
 
     function dateChage(){
         const date=document.getElementById("date").value
-        setDate(date)
+        setDate(new Date(date))
     }
 
     function submitHandler(e){
