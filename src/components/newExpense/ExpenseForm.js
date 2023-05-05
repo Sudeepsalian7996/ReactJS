@@ -28,6 +28,7 @@ function ExpenseForm(props){
             date:date
         } 
         props.newExpenseAdd(expenseData)
+        props.onCancel()
         setTitle("")
         setAmount("")
         setDate("")  
@@ -48,7 +49,8 @@ function ExpenseForm(props){
                 <input type="date" value={date} onChange={dateChage} id="date"/>
             </div>  
             <div className="new-expense__actions">
-            <button type="submit">Add</button>
+            <button onClick={props.onCancel}>cancel</button>
+            <button type="submit" >Add</button>
             </div>  
             
         </div>

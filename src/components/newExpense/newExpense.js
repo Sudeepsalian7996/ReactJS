@@ -1,6 +1,8 @@
 import ExpenseForm from "./ExpenseForm"
+import { useState } from "react"
 
-function newExpense(props){
+function NewExpense(props){
+    const [form,setForm]=useState(false)
     function newExpenseAddHandler(expenseData){
         const newExpenseData={
             ...expenseData,
@@ -9,8 +11,18 @@ function newExpense(props){
         props.expenseAddedToApp(newExpenseData)
     }
     
+    function expenseHandler(){
+        setForm(true)
+    }
+    function cancelHandler(){
+        setForm(false)
+    }
     return(
-        <ExpenseForm newExpenseAdd={newExpenseAddHandler}/>
+        <div>
+            {!form && <button onClick={expenseHandler}>Add new Expense</button>}
+            {form && <ExpenseForm newExpenseAdd={newExpenseAddHandler} onCancel={cancelHandler}/>}
+        </div>
+        
     )
 }
-export default newExpense
+export default NewExpense
